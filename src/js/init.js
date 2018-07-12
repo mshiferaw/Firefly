@@ -284,7 +284,7 @@ function init() {
 	initControls();
 
 	// load texture
-	params.texture = new THREE.TextureLoader().load( "textures/bb.png" );
+	params.texture = new THREE.TextureLoader().load( "textures/colormap.png" );
 	console.log('texture', params.texture)
 
 }
