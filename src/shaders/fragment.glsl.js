@@ -33,16 +33,9 @@ mat4 rotationMatrix(vec3 axis, float angle)
 void main(void) {
     gl_FragColor = color;
 
-    if (useColorBar == 1){
+    if (useColorBar > 0.){
         if (vID > -1.){
-            vec2 pos = vec2(vMag,0.5);
-            vec3 c = texture2D(tex, pos).rgb;
-            gl_FragColor.rgb = c;
-        }
-    }
-    else if (useColorBar == 2){
-        if (vID > -1.){
-            vec2 pos = vec2(tMag,0.5);
+            vec2 pos = vec2(vMag, useColorBar);
             vec3 c = texture2D(tex, pos).rgb;
             gl_FragColor.rgb = c;
         }
