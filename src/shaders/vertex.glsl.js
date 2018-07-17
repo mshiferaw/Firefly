@@ -2,12 +2,21 @@ var myVertexShader = `
 
 attribute float alpha;
 attribute vec4 velVals;
+<<<<<<< HEAD
 attribute float ColorMapVariable_Array;
+=======
+attribute float Temperature;
+>>>>>>> bae43f4f212b04d6306bfaee39ea1d6499004f1c
 
 varying float vID;
 varying float vAlpha;
 varying float vTheta;
+<<<<<<< HEAD
 varying float VariableMag;
+=======
+varying float vMag;
+varying float tMag;
+>>>>>>> bae43f4f212b04d6306bfaee39ea1d6499004f1c
 //varying float vVertexScale;
 //varying float glPointSize;
 
@@ -36,10 +45,15 @@ void main(void) {
     pointScale = clamp(pointScale, minPointScale, maxPointScale);
     
     gl_PointSize = uVertexScale * pointScale;
+<<<<<<< HEAD
     
     // send colormap array to fragment shader
     VariableMag = ColorMapVariable_Array;
     
+=======
+    vMag = velVals[3];
+    tMag = Temperature;
+>>>>>>> bae43f4f212b04d6306bfaee39ea1d6499004f1c
 
     if (vID > 0.5){ //velocities (==1, but safer this way)
         float vyc= -dot(velVals.xyz,cameraY);

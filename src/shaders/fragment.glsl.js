@@ -5,6 +5,7 @@ precision mediump float;
 varying float vID;
 varying float vAlpha;
 varying float vTheta;
+<<<<<<< HEAD
 varying float VariableMag;
 //varying float vVertexScale;
 //varying float glPointSize;
@@ -14,6 +15,19 @@ uniform vec4 color;
 uniform int SPHrad;
 uniform float velType; //0 = line, 1 = arrow, 2 = triangle
 uniform sampler2D texture;
+=======
+varying float vMag;
+varying float tMag;
+//varying float vVertexScale;
+//varying float glPointSize;
+
+uniform int useColorBar;
+uniform vec4 color;
+uniform int SPHrad;
+uniform float velType; //0 = line, 1 = arrow, 2 = triangle
+// ADDED HERE
+uniform sampler2D tex;
+>>>>>>> bae43f4f212b04d6306bfaee39ea1d6499004f1c
 
 //http://www.neilmendoza.com/glsl-rotation-about-an-arbitrary-axis/
 mat4 rotationMatrix(vec3 axis, float angle)
@@ -30,12 +44,20 @@ mat4 rotationMatrix(vec3 axis, float angle)
 }
 void main(void) {
     gl_FragColor = color;
+<<<<<<< HEAD
     
     // if colormap is requested, apply appropriate colormap to appropriate variable
     if (colormap > 0.){
         if (vID > -1.){
             vec2 pos = vec2(VariableMag, colormap);
             vec3 c = texture2D(texture, pos).rgb;
+=======
+
+    if (useColorBar > 0.){
+        if (vID > -1.){
+            vec2 pos = vec2(vMag, useColorBar);
+            vec3 c = texture2D(tex, pos).rgb;
+>>>>>>> bae43f4f212b04d6306bfaee39ea1d6499004f1c
             gl_FragColor.rgb = c;
         }
     }
